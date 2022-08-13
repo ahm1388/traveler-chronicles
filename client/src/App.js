@@ -1,14 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobeAsia } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGlobeAsia } from '@fortawesome/free-solid-svg-icons'
+import { getPosts } from './actions/posts'
+
+import Posts from './components/Posts/Posts'
+import Form from './components/Form/Form'
+import useStyles from './styles'
 
 const App = () => {
+    const classes = useStyles()
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getPosts())
+    }, [dispatch])
+
     return (
         <Container maxwidth="lg">
-            <AppBar position="static" color="inherit">
-                <Typography variant="h2" align="center">Traveler Chronicles</Typography>
-                <FontAwesomeIcon icon={faGlobeAsia} fontSize="60" />
+            <AppBar className={classes.appBar} position="static" color="inherit">
+                <Typography className={classes.heading} variant="h2" align="center">Traveler Chronicles</Typography>
+                <FontAwesomeIcon icon={faGlobeAsia} fontSize="40" className={classes.image} />
             </AppBar>
             <Grow in>
                 <Container>

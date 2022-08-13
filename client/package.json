@@ -2,7 +2,7 @@
   "name": "mern-stack-client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://memories-project-part4.herokuapp.com/",
+  "proxy": "https://localhost:5000",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-regular-svg-icons": "^6.1.2",
